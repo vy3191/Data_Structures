@@ -14,7 +14,7 @@ class Node:
     self.next_node = new_next_node
 
   def __repr__(self):
-    return f"<Node: {self.value}"
+    return f"<Node value: {self.value}>"
 
 class LinkedList:
   # A linear data structure that stores values in nodes
@@ -94,6 +94,22 @@ class LinkedList:
       self.length -=1   
 
     return deleted_value
+
+  def __repr__(self):
+    current = self.head
+    nodes = []
+    while current:
+      print(current.value)
+      if current is self.head:
+        nodes.append(f"[Head: {current.value}]") 
+        current = current.next_node
+      elif current.next_node is None:
+        nodes.append(f"[Tail: {current.value}]")
+        current = current.next_node 
+      else:
+        nodes.append(f"[{current.value}]")  
+        current = current.next_node
+    return '-->'.join(nodes)    
       
 
 
