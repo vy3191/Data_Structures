@@ -24,20 +24,37 @@ class Linked_List:
     self.length = 0
   def is_list_empty(self):
     return self.head == None
-  def find_length(self):
-    current = self.head
+  def find_size(self):
+    current = self.head   # O(1)
     count = 0
     while current:
       count += 1
       current = current.next_node
     return count  
+
   def add_to_head(self,value):
     # if there is no node at all
-    node = Node(self,value)
+    new_node = Node(self,value)
     if self.head == None:
-      self.head = node
-      self.tail = node
+      self.head = new_node
+      self.tail = new_node
+      self.head.next_node = None
     else:
-      node.set_next_node(self.head)  
+      new_node.set_next_node(self.head)  
+      self.head = new_node
+    self.length +=1
+
+  def add_to_tail(self,value):
+    new_node = Node(value)
+    if self.head is None:    #  O(1)
+      self.head = new_node
+      self.tail = new_node
+    else:
+      self.tail.set_next_node(new_node)  #  O(1)
+      self.tail = new_node      
+    self.length += 1  
+
+
+
 
 
