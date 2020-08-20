@@ -73,23 +73,27 @@ class LinkedList:
 
   def remove_tail(self):
     # if there are no nodes to remove
-    deleted_value = None
     if self.tail is None:
       return None
     elif self.head == self.tail:
-      deleted_value = self.tail.get_value()
+      deleted_value = self.tail.value
+      print(f"line81{deleted_value}")
       self.head = None
       self.tail = None
       self.length -= 1
+      return deleted_value
     else:
       current = self.head
-
       while current.next_node is not self.tail:
+        print(current.value)
         current = current.next_node
-        current 
+      print(f"value before tail is: {current.value}")  
+      deleted_value = self.tail.value
+      self.tail = current
+      current.next_node = None  
+      self.length -=1   
 
-
-    return deleted_value  
+    return deleted_value
       
 
 
