@@ -3,31 +3,31 @@ Answer the following questions for each of the data structures you implemented a
 ## Stack
 
 1. What is the runtime complexity of `push` using a list?
-
+ Ans: Constant O(1)
 2. What is the runtime complexity of `push` using a linked list?
-
+ Ans: Constant O(1)
 3. What is the runtime complexity of `pop` using a list?
-
+ Ans: Constant O(1)
 4. What is the runtime complexity of `pop` using a linked list?
-
+ Ans: Constant O(1)
 5. What is the runtime complexity of `len` using a list?
-
+ Ans: Constant O(1)
 6. What is the runtime complexity of `len` using a linked list?
-
+ Ans: Constant O(1)
 ## Queue
 
 1. What is the runtime complexity of `enqueue` using a list?
-
+Ans: Constant O(1)
 2. What is the runtime complexity of `enqueue` using a linked list?
-
+Ans: Constant O(1)
 3. What is the runtime complexity of `dequeue` using a list?
-
+Ans: Linear O(n)
 4. What is the runtime complexity of `dequeue` using a linked list?
-
+Ans: Constant O(1)
 5. What is the runtime complexity of `len` using a list?
-
+ Ans: Constant O(1)
 6. What is the runtime complexity of `len` using a linked list?
-
+ Ans: Constant O(1)
 ## Doubly Linked List
 
 1. What is the runtime complexity of `ListNode.insert_after`?
