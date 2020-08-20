@@ -54,6 +54,22 @@ class Linked_List:
       self.tail = new_node      
     self.length += 1  
 
+  def remove_from_head(self):
+    # say if there are no node at all in the list
+    deleted_value = None
+    if self.head is None:
+      return None
+    elif self.head == self.tail:
+      deleted_value = self.head.get_value()
+      self.head = None
+      self.tail = None
+      self.length -= 1
+    # if there are more than one node
+    else:
+      deleted_value = self.head.get_value()
+      self.head = self.head.get_next_node()
+      self.length -= 1
+          
 
 
 
