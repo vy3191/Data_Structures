@@ -18,20 +18,25 @@ from singly_linked_list import LinkedList
 class Queue:
     def __init__(self):
         self.size = 0
-        self.storage = []
+        # self.storage = []
+        self.storage = LinkedList()
     
     def __len__(self):
         return self.size
 
     def enqueue(self, value):
-        index = self.size
-        self.storage.insert(index, value)
+        # index = self.size
+        # self.storage.insert(index, value)
+        self.storage.add_to_tail(value)
         self.size += 1
 
     def dequeue(self):
         if self.size > 0:
-            first_index = 0
-            del_value = self.storage[first_index]
-            del self.storage[first_index]
+            # first_index = 0
+            # del_value = self.storage[first_index]
+            # del self.storage[first_index]
+            # self.size -= 1
+            # return del_value
+            del_value = self.storage.remove_head()
             self.size -= 1
             return del_value
