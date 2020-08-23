@@ -116,6 +116,32 @@ class LinkedList:
     self.length -= 1
     return target.value
 
+  def insert_at_index(self,index,value):
+    #if there is no index
+    if not index:
+      return None
+    #if there is no value
+    if not value:
+      return None
+    #if there are no nodes in the linked list
+    if self.length == 0:
+      self.head = Node(value)
+      self.tail = Node(value)  
+    #if index is zero
+    if index == 0:
+      self.add_to_head(value)
+    if index == self.length:
+      self.add_to_tail(value)
+    #anywhere in the LinkedList
+    previous = self.head
+    new_node = Node(value)
+    for i in range(index-1):
+      previous = previous.next_node
+    target = previous.next_node
+    previous.next_node = new_node
+    new_node.next_node = target
+    self.length += 1       
+
   def search(self,key):
     current = self.head
     while current:
