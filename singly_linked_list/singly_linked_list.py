@@ -127,11 +127,11 @@ class LinkedList:
     if self.length == 0:
       self.head = Node(value)
       self.tail = Node(value)  
-    #if index is zero
-    if index == 0:
-      self.add_to_head(value)
-    if index == self.length:
-      self.add_to_tail(value)
+    # #if index is zero
+    # if index == 0:
+    #   self.add_to_head(value)
+    # if index == self.length:
+    #   self.add_to_tail(value)
     #anywhere in the LinkedList
     previous = self.head
     new_node = Node(value)
@@ -155,7 +155,6 @@ class LinkedList:
     current = self.head
     nodes = []
     while current:
-      print(current.value)
       if current is self.head:
         nodes.append(f"[Head: {current.value}]") 
         current = current.next_node
