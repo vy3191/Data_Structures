@@ -130,7 +130,19 @@ class DoublyLinkedList:
     in the List.
     """
     def get_max(self):
-        pass
+        # if there are no nodes at all
+        if self.length == 0:
+            return None
+        elif self.length == 1:
+            return self.head.value    
+        else:
+            max = self.head.value
+            current = self.head
+            while current:
+                if max < current.value:
+                    max = current.value
+                current = current.next      
+        return max          
 
     def __repr__(self):
         current = self.head
