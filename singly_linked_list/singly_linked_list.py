@@ -34,7 +34,7 @@ class LinkedList:
 
   def add_to_head(self,value):
     # if there is no node at all
-    new_node = Node(self,value)
+    new_node = Node(value)
     if self.head == None:
       self.head = new_node
       self.tail = new_node
@@ -94,6 +94,27 @@ class LinkedList:
       self.length -=1   
 
     return deleted_value
+
+  def remove_at_index(self,index):
+    #if index value greater than/equal to the size of the LinkedList
+    if index >= self.length:
+      return None
+    # if there is only one node in the linked list
+    if self.head == self.tail or (self.length == 1 and index ==0):
+      target = self.head
+      self.head = None
+      self.target = None
+      self.length -= 1
+      return target.value
+    
+    current = self.head     
+    for i in range(index-1):
+      current = current.next_node
+    target = current.next_node
+    current.next_node = target.next_node
+    target.next_node = None  
+    self.length -= 1
+    return target.value
 
   def __repr__(self):
     current = self.head
