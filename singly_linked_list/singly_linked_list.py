@@ -116,6 +116,15 @@ class LinkedList:
     self.length -= 1
     return target.value
 
+  def search(self,key):
+    current = self.head
+    while current:
+      if current.value == key:
+        return current
+      else:
+        current = current.next_node
+    return None        
+
   def __repr__(self):
     current = self.head
     nodes = []
