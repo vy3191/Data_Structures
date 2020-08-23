@@ -92,14 +92,14 @@ class DoublyLinkedList:
         if self.head == None or self.tail == None:
             return None
         elif self.head == self.tail:
-            del_value = self.head
+            del_value = self.head.value
             self.head = None
             self.tail = None
         else:
-            del_value = self.tail
+            del_value = self.tail.value
             previous_node = self.tail.prev
             self.tail = previous_node
-            self.next = None
+            self.tail.next = None
         self.length -= 1
         return del_value
                 
