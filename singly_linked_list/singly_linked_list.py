@@ -94,6 +94,23 @@ class LinkedList:
       self.length -=1   
 
     return deleted_value
+  def remove(self,key):
+    current = self.head
+    previous = None
+    found = False
+
+    while current and not found:
+      if current.value == key and current is self.head:
+        found = True
+        self.head = current.next_node
+      elif current.value == key:
+        found = True
+        previous.next_node = current.next_node
+      else:
+        previous = current
+        current = current.next_node
+    return current    
+
 
   def remove_at_index(self,index):
     #if index value greater than/equal to the size of the LinkedList
