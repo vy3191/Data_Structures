@@ -40,9 +40,7 @@ class DoublyLinkedList:
             new_node.next = self.head
             self.head = new_node
             new_node.next.prev = new_node
-        self.length += 1    
-
-        
+        self.length += 1            
     """
     Removes the List's current head node, making the
     current head's next node the new head of the List.
@@ -118,5 +116,21 @@ class DoublyLinkedList:
     """
     def get_max(self):
         pass
+
+    def __repr__(self):
+        current = self.head
+        nodes = []
+        while current:
+            if current is self.head:
+                nodes.append(f"[Head:{current.value}]")
+                current = current.next
+            elif current is self.tail:
+                nodes.append(f"[Tail:{current.value}]")
+                current = current.next
+            else:
+                nodes.append(f"[{current.value}]")
+                current = current.next
+        return '-->'.join(nodes)         
+
 
     
