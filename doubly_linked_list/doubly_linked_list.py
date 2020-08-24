@@ -99,7 +99,7 @@ class DoublyLinkedList:
             del_value = self.tail.value
             previous_node = self.tail.prev
             self.tail = previous_node
-            # self.tail.next = None
+            self.tail.next = None
         self.length -= 1
         return del_value
                 
@@ -109,49 +109,74 @@ class DoublyLinkedList:
     List and inserts it as the new head node of the List.
     """
     def move_to_front(self, node):
-        pass
+        #if there is no node at all
+        if self.length == 0:
+            return None
+        else:
+            self.delete(node)
+            self.add_to_head(node.value)
+        
         
     """
     Removes the input node from its current spot in the 
     List and inserts it as the new tail node of the List.
     """
     def move_to_end(self, node):
-        pass
+        if self.length ==0:
+            return None
+        else:
+            self.delete(node)    
+            self.add_to_tail(node.value)
+        
 
     """
     Deletes the input node from the List, preserving the 
     order of the other elements of the List.
     """
     def delete(self, node):
+        # self.length -= 1
+        print(f"line 126 {node.value}")
         if self.length == 0:
+            print("There are no nodes in the linked list")
             return None
-        elif self.head == self.tail and self.head !=node.value:
+        elif self.length ==1 and self.head.value !=node.value:
             return None    
-        elif self.head.value == node.value or self.tail.value == node.value:
+        elif self.head.value == node.value and self.tail.value == node.value:
             self.head = None
             self.tail = None
             self.length -= 1
             return node.value 
         elif self.head.value == node.value and self.tail.value != node.value:
             del_val = self.remove_from_head()    
-            self.length -= 1
+            # self.length -= 1
             return del_val
         elif self.tail.value == node.value and self.head.value != node.value:
             del_val = self.remove_from_tail()
-            self.length -= 1
+            # self.length -= 1
             return del_val
         else:
-            previous_node = node.prev   
-            previous_node.next = node.next
-            next_node = node.next_node
-            next_node.prev = previous_node
+            # previous_node = node.prev  
+            # print(f"previous Node 146{previous_node}") 
+            # previous_node.next = node.next
+            # next_node = node.next
+            # print('next-node line 149{n}')
+            # next_node.prev = previous_node
+            # self.length -= 1
+            # node.prev = None
+            # node.next = None
+            # return node.value 
+            node.prev.next = node.next
+            node.next.prev = node.prev
             self.length -= 1
-            node.prev = None
-            node.next = None
-            return node.value 
+            return node
+        # if self.head == self.tail:
+        #     self.head = None
+        #     self.tail = None
+        # elif node = self.head:
+        #     self.head = node.next
 
 
-        
+       
 
     """
     Finds and returns the maximum value of all the nodes 
