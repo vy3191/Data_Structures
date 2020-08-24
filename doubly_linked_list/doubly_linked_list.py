@@ -155,26 +155,21 @@ class DoublyLinkedList:
             # self.length -= 1
             return del_val
         else:
-            # previous_node = node.prev  
-            # print(f"previous Node 146{previous_node}") 
-            # previous_node.next = node.next
-            # next_node = node.next
-            # print('next-node line 149{n}')
-            # next_node.prev = previous_node
-            # self.length -= 1
-            # node.prev = None
-            # node.next = None
-            # return node.value 
-            node.prev.next = node.next
-            node.next.prev = node.prev
+            previous_node = node.prev  
+            print(f"previous Node 146{previous_node}") 
+            previous_node.next = node.next
+            next_node = node.next
+            print('next-node line 149{n}')
+            next_node.prev = previous_node
+            self.length -= 1
+            node.prev = None
+            node.next = None
+            return node.value 
+            # node.prev.next = node.next
+            # node.next.prev = node.prev
             self.length -= 1
             return node
-        # if self.head == self.tail:
-        #     self.head = None
-        #     self.tail = None
-        # elif node = self.head:
-        #     self.head = node.next
-
+      
 
        
 
