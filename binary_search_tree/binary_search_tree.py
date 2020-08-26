@@ -17,20 +17,77 @@ class BSTNode:
 
     # Insert the given value into the tree
     def insert(self, value):
-        pass
+        if self.value is None:
+            return None
+
+        if self.value < value:
+            if self.right is None:
+                new_node = BSTNode(value)    
+                self.right = new_node
+            else:
+                self.right.insert(value)    
+        if self.value > value:
+            if self.left is None:
+                new_node = BSTNode(value)        
+                self.left = new_node
+            else:
+                self.left.insert(value)    
+
 
     # Return True if the tree contains the value
     # False if it does not
     def contains(self, target):
-        pass
+        if self.value is None:
+            return False
+
+        if target is None:
+            return None
+
+        if self.value == target:
+            return True
+
+        if self.value < target:
+            if self.right is None:
+                return False
+            elif self.right == target:
+                return True    
+            else:
+                return self.right.contains(target)    
+
+        if self.value > target:
+            if self.left is None:
+                return False
+            elif self.left == target:
+                return True    
+            else:
+                return self.left.contains(target)          
+
+
+
 
     # Return the maximum value found in the tree
     def get_max(self):
-        pass
+        if self.right is None:
+            return self.value
+
+        if self.value == self.right:
+            return self.value
+        else:
+            return self.right.get_max()        
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
-        pass
+        if self.value is None:
+            return None
+        if not fn:
+            return None
+
+        fn(self.value)  
+        if self.left:
+            self.left.for_each(fn)
+
+        if self.right:
+            self.right.for_each(fn)
 
     # Part 2 -----------------------
 
@@ -70,8 +127,8 @@ bst.insert(5)
 bst.insert(7)
 bst.insert(6)
 bst.insert(3)
-bst.insert(4)
-bst.insert(2)
+bst.insert(14)
+bst.insert(20)
 
 bst.bft_print()
 bst.dft_print()
