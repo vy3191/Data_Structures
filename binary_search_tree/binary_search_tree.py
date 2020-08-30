@@ -9,6 +9,8 @@ This part of the project comprises two days:
 2. Implement the `in_order_print`, `bft_print`, and `dft_print` methods
    on the BSTNode class.
 """
+from collections import deque
+
 class BSTNode:
     def __init__(self, value):
         self.value = value
@@ -80,23 +82,47 @@ class BSTNode:
             self.right.for_each(fn)
 
     def depth_first(self,fn):
+        pass
 
     # Part 2 -----------------------
 
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
-    def in_order_print(self):
-        pass
+    def in_order_print(self,node):
+        if self.right:
+            self.right.in_order_print(node)
+        else:
+            self.left.in_order_print(node)    
+        print(self.value)    
+
+        
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
-    def bft_print(self):
-        pass
+    def bft_print(self, node):
+        queue = deque()
+        current = node
+        while current and len(queue) >0:
+            if current.left:
+                queue.append(current.left)
+            if current.right:
+                queue.append(current.right)    
+            print(current.value)    
+            current = queue.popleft()
+
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
-    def dft_print(self):
-        pass
+    def dft_print(self,node):
+        queue = deque()
+        current = node
+        while current and len(queue) >0:
+            if current.left:
+                queue.append(current.left)
+            if current.right:
+                queue.append(current.right)    
+            print(current.value)    
+            current = queue.pop()
 
     # Stretch Goals -------------------------
     # Note: Research may be required
@@ -122,8 +148,8 @@ bst.insert(3)
 bst.insert(14)
 bst.insert(20)
 
-# bst.bft_print()
-# bst.dft_print()
+bst.bft_print(bst)
+bst.dft_print(bst)
 
 # print("elegant methods")
 # print("pre order")
