@@ -65,19 +65,12 @@ class BSTNode:
     # Return the maximum value found in the tree
     def get_max(self):
         if self.right is None:
-            return self.value
-
-        if self.value == self.right:
-            return self.value
+            return self.value        
         else:
             return self.right.get_max()        
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
-        if self.value is None:
-            return None
-        if not fn:
-            return None
         if self.value:
             fn(self.value)  
         if self.left:
@@ -85,6 +78,8 @@ class BSTNode:
 
         if self.right:
             self.right.for_each(fn)
+
+    def depth_first(self,fn):
 
     # Part 2 -----------------------
 
