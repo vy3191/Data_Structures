@@ -21,8 +21,8 @@ class BSTNode:
     def insert(self, value):
         if self.value is None:
             return None
-
-        if self.value < value:
+        
+        if self.value <= value:
             if self.right is None:
                 new_node = BSTNode(value)    
                 self.right = new_node
@@ -88,41 +88,43 @@ class BSTNode:
 
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
-    def in_order_print(self,node):
-        if self.right:
-            self.right.in_order_print(node)
-        else:
-            self.left.in_order_print(node)    
+    def in_order_print(self):
+        if self.left:
+            self.left.in_order_print()
         print(self.value)    
+        if self.right:
+            self.right.in_order_print()    
 
         
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
-    def bft_print(self, node):
+    def bft_print(self,node):
         queue = deque()
         current = node
-        while current and len(queue) >0:
+        queue.append(current)
+        while len(queue) >0:
+            current = queue.popleft()
             if current.left:
                 queue.append(current.left)
             if current.right:
                 queue.append(current.right)    
             print(current.value)    
-            current = queue.popleft()
 
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self,node):
-        queue = deque()
+        stack = deque()
         current = node
-        while current and len(queue) >0:
+        stack.append(current)
+        while len(stack) >0:
+            current = stack.pop()
             if current.left:
-                queue.append(current.left)
+                stack.append(current.left)
             if current.right:
-                queue.append(current.right)    
+                stack.append(current.right)    
             print(current.value)    
-            current = queue.pop()
 
     # Stretch Goals -------------------------
     # Note: Research may be required
